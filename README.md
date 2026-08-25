@@ -4,7 +4,7 @@ Dispositif interne de mesure de l'usage d'**e-jàng**, la plateforme nationale d
 
 Sur un tel espace, publier une date de dernier accès revient à publier le comportement d'une personne identifiable en un clic. Le dispositif applique donc à une plateforme d'apprentissage les règles de la **statistique publique**, où elles sont la norme, alors qu'elles ne l'étaient pas ici.
 
-Conçu au sein de la **Direction des Curricula et de l'Innovation Pédagogique (DCIP)**.
+Conçu au sein de la **Direction des Curricula et des Innovations Pédagogiques (DCIP)**.
 
 > 🟢 **En service** depuis août 2026. Relevé automatique le premier de chaque mois.
 
@@ -61,4 +61,4 @@ Les seuls éléments de contexte conservés sont des ordres de grandeur de struc
 
 Ce qui est présenté ici est la méthode de protection. Elle ne doit rien à la plateforme concernée et vaut pour tout dispositif de mesure portant sur de petits effectifs.
 
-**Conception :** Oumar SALL, Direction des Curricula et de l'Innovation Pédagogique, MEFPT, Sénégal.
+**Conception :** Oumar SALL, Direction des Curricula et des Innovations Pédagogiques, MEFPT, Sénégal.
