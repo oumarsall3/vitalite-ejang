@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vitalité e-jàng — mesurer l'usage sans désigner personne</title>
+<meta name="description" content="Dispositif de mesure d'usage pour une plateforme d'apprentissage nationale, conçu selon les règles de la statistique publique.">
+<style>
+  :root {
+    --bleu: #164F9E;
+    --marine: #123674;
+    --or: #E4BB38;
+    --texte: #1b2733;
+    --doux: #5b6b80;
+    --fond: #ffffff;
+    --bord: #e2e8f0;
+    --gris: #f6f8fb;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    color: var(--texte);
+    background: var(--fond);
+    line-height: 1.6;
+  }
+  .bandeau {
+    background: linear-gradient(105deg, #0f2d61 0%, var(--marine) 45%, var(--bleu) 100%);
+    color: #fff;
+    padding: 3.5rem 1.5rem 3rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .bandeau::after {
+    content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 3px;
+    background: linear-gradient(90deg, var(--or) 0%, #FFD966 45%, transparent 100%);
+  }
+  .dedans { max-width: 940px; margin: 0 auto; }
+  .surtitre {
+    margin: 0 0 .4rem; font-size: .8rem; letter-spacing: .1em;
+    text-transform: uppercase; color: #FFD966;
+  }
+  h1 { margin: 0 0 .8rem; font-size: 2.3rem; line-height: 1.15; font-weight: 700; }
+  .chapo { margin: 0; font-size: 1.08rem; opacity: .93; max-width: 42rem; }
+  main { max-width: 940px; margin: 0 auto; padding: 0 1.5rem 4rem; }
+  section { padding: 2.6rem 0 .6rem; }
+  h2 {
+    font-size: 1.4rem; color: var(--marine); margin: 0 0 1rem;
+    padding-bottom: .5rem; border-bottom: 2px solid var(--or); display: inline-block;
+  }
+  h3 { font-size: 1.05rem; color: var(--marine); margin: 1.6rem 0 .5rem; }
+  p { margin: 0 0 1rem; }
+  .encart {
+    background: var(--gris); border-left: 3px solid var(--bleu);
+    padding: 1.1rem 1.3rem; border-radius: 0 10px 10px 0; margin: 1.4rem 0;
+  }
+  .encart p:last-child { margin-bottom: 0; }
+  figure { margin: 1.8rem 0; }
+  figure img {
+    width: 100%; height: auto; display: block;
+    border: 1px solid var(--bord); border-radius: 12px;
+    box-shadow: 0 2px 14px rgba(18, 54, 116, .09);
+  }
+  figcaption { margin-top: .6rem; font-size: .85rem; color: var(--doux); text-align: center; }
+  .grille { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin: 1.5rem 0; }
+  .carte { border: 1px solid var(--bord); border-radius: 12px; padding: 1.1rem 1.2rem; }
+  .carte .n { font-size: 1.9rem; font-weight: 700; color: var(--marine); line-height: 1; }
+  .carte .l { font-size: .87rem; color: var(--doux); margin-top: .4rem; display: block; }
+  pre {
+    background: #0f2038; color: #dbe6f5; padding: 1rem 1.1rem; border-radius: 10px;
+    overflow-x: auto; font-size: .82rem; line-height: 1.5;
+  }
+  table { width: 100%; border-collapse: collapse; margin: 1.2rem 0; font-size: .93rem; }
+  th, td { text-align: left; padding: .6rem .7rem; border-bottom: 1px solid var(--bord); }
+  th { color: var(--marine); font-weight: 600; }
+  .pied {
+    border-top: 1px solid var(--bord); margin-top: 2.5rem; padding-top: 1.4rem;
+    font-size: .85rem; color: var(--doux);
+  }
+  .avert {
+    background: #fff8e6; border: 1px solid #f0d999; border-radius: 10px;
+    padding: 1rem 1.2rem; font-size: .9rem; margin: 1.6rem 0;
+  }
+  @media (max-width: 640px) {
+    h1 { font-size: 1.7rem; }
+    .bandeau { padding: 2.4rem 1.2rem 2rem; }
+  }
+</style>
+</head>
+<body>
+
+<header class="bandeau">
+  <div class="dedans">
+    <p class="surtitre">Étude de cas · ingénierie de la mesure</p>
+    <h1>Mesurer l'usage d'une plateforme nationale sans jamais désigner personne</h1>
+    <p class="chapo">Un dispositif de mesure conçu pour <strong>e-jàng</strong>, la plateforme nationale de formation à distance du ministère de la Formation professionnelle et technique du Sénégal : des milliers d'espaces de cours, dont la plupart sont trop peu peuplés pour qu'un chiffre y reste anonyme.</p>
+  </div>
+</header>
+
+<main>
+
+<section>
+  <h2>Le problème</h2>
+  <p>La mesure de l'usage se faisait à la main : ouvrir une à une les pages de participants, relever la date du dernier accès, agréger. Plusieurs journées de travail, une seule personne capable de recommencer, aucun moyen pour un tiers de vérifier.</p>
+
+  <h3>Trois obstacles, et le troisième n'est pas technique</h3>
+  <p><strong>De méthode.</strong> La source ne conserve qu'une date par personne et par espace, sans compteur de visites. Tout indicateur formulé en « nombre d'accès » était donc impossible à produire, alors même que les rapports antérieurs en publiaient. La mesure était juste, le mot était faux.</p>
+  <p><strong>Juridique.</strong> Une large part des espaces ne comptent qu'une seule personne inscrite. Y publier une date de dernier accès revient à publier le comportement d'une personne identifiable en un clic.</p>
+  <p><strong>Politique.</strong> Les chiffres sont mauvais. Les afficher crûment sur une page publique produirait du retrait plutôt que de l'engagement, et se retournerait contre le projet qu'ils devaient servir.</p>
+</section>
+
+<section>
+  <h2>Le principe retenu</h2>
+  <div class="encart">
+    <p>Deux publics, deux documents, une seule source de chiffres. <strong>Ce qui mobilise va sur la place publique ; ce qui alerte reste dans le rapport interne.</strong> Non pour farder les résultats, mais parce qu'un tableau de bord de communication et un instrument de pilotage ne se lisent pas de la même façon.</p>
+  </div>
+  <p>L'émulation entre personnes a été écartée au profit de l'émulation entre équipes : le dispositif publie le nombre d'enseignants actifs par établissement, jamais leur nom. Le ressort est le même, et il valorise un collectif plutôt qu'un individu isolé.</p>
+</section>
+
+<section>
+  <h2>La page publique</h2>
+  <figure>
+    <img src="images/vitalite_vitrine.png" alt="Tableau de bord public : quatre indicateurs et deux palmarès d'établissements">
+    <figcaption>Restitution publique. Données de démonstration : les établissements portent des noms fictifs.</figcaption>
+  </figure>
+  <p>Quatre chiffres, deux palmarès, une note de méthode. Aucune personne n'y est nommée, aucune valeur inférieure au plancher n'y est publiée, et un palmarès de moins de trois lignes n'est pas affiché du tout.</p>
+</section>
+
+<section>
+  <h2>La protection, en trois étages</h2>
+  <p>Le dispositif applique à une plateforme d'apprentissage des règles empruntées à la statistique publique, où elles sont la norme et où elles ne le sont pas ici.</p>
+
+  <table>
+    <tr><th>Étage</th><th>Règle</th><th>Ce qu'il empêche</th></tr>
+    <tr><td>Masquage primaire</td><td>sous le seuil, aucun indicateur de fréquentation n'est conservé</td><td>lire le comportement d'une personne dans un espace peu peuplé</td></tr>
+    <tr><td>Suppression secondaire</td><td>jamais une seule cellule supprimée dans une ligne</td><td>retrouver la valeur masquée par soustraction</td></tr>
+    <tr><td>Plancher de publication</td><td>aucune valeur sous le plancher sur la page publique</td><td>désigner quelqu'un en publiant « 1 » dans un petit centre</td></tr>
+  </table>
+
+  <h3>Le masquage l'emporte sur l'utilité, et cela se voit</h3>
+  <p>Dans la liste de travail transmise aux responsables, un espace trop peu peuplé sort avec ses cellules vides et un état explicite. La consigne renvoie alors à la source vivante plutôt qu'à un chiffre figé.</p>
+  <pre>À faire                            | Espace              | Inscrits | Jamais venus | Vus sur 30 j | État
+-----------------------------------+---------------------+----------+--------------+--------------+---------------------------
+Relancer les inscrits              | Module 2            |       13 |           13 |            0 | Rempli mais désert
+Déposer du contenu                 | Module 1            |       19 |            8 |           11 | Vide mais fréquenté
+À vérifier dans le cours           | Module 4            |        2 |            — |            — | Rempli, fréquentation non publiée</pre>
+  <p>La première colonne est la raison d'être du fichier : elle transforme un tableau de chiffres en liste de travail. Un tableau sans verbe d'action finit dans un dossier.</p>
+</section>
+
+<section>
+  <h2>Ce que la recette a rattrapé</h2>
+  <p>Deux défauts de confidentialité ont été trouvés après coup. Tous deux venaient de corrections antérieures qui paraissaient bonnes, et c'est ce qui les rend intéressants.</p>
+
+  <h3>Le masquage était contournable par déduction</h3>
+  <p>Masquer la seule date ne suffisait pas. Sur un espace à un inscrit, le compteur des personnes jamais venues dit exactement la même chose, et l'état affiché dit l'inverse. Trois colonnes tombent désormais ensemble, et la correction a été portée dans la collecte plutôt que dans l'affichage : ce qui n'est pas enregistré ne peut pas fuir plus tard.</p>
+
+  <h3>Le masquage était réversible par soustraction</h3>
+  <p>Une règle avait été posée pour que la somme des établissements retombe exactement sur le total national : agréger avant de masquer. Elle rendait le masquage inversible. Retrancher les espaces publiés du total de l'établissement restituait la valeur masquée, et lorsqu'un seul espace était concerné, elle était restituée exactement.</p>
+  <div class="encart">
+    <p>La règle de suppression secondaire de la statistique publique a été appliquée : lorsqu'un établissement ne compterait qu'un seul espace masqué, un second l'est également. La soustraction ne peut alors plus isoler personne.</p>
+  </div>
+</section>
+
+<section>
+  <h2>La vérification</h2>
+  <div class="grille">
+    <div class="carte"><span class="n">15/15</span><span class="l">indicateurs concordants sur un jeu calibré à la main</span></div>
+    <div class="carte"><span class="n">1 s</span><span class="l">de collecte pour l'ensemble de la plateforme</span></div>
+    <div class="carte"><span class="n">5</span><span class="l">dimensions de revue de sécurité, chaque constat attaqué avant d'être retenu</span></div>
+    <div class="carte"><span class="n">9</span><span class="l">correctifs jugés indispensables avant tout dépôt</span></div>
+  </div>
+
+  <h3>Le banc a été monté à la version exacte de la production</h3>
+  <p>Et non à une version voisine. Deux pièges connus passent inaperçus sur une version plus récente et cassent en production : une syntaxe de langage postérieure, et une méthode devenue facultative. Le composant refuse d'ailleurs de s'installer sur une version majeure supérieure : la frontière est matérialisée plutôt que documentée.</p>
+
+  <h3>Le jeu de recette reproduit six pièges</h3>
+  <p>Double méthode d'inscription sur un même espace, cumul de rôles, catégorie plus profonde qu'attendu, espace hors de toute branche, accès sans inscription correspondante, compte d'exploitation contaminant. Chacun de ces cas fausse un relevé d'usage sans que rien ne le signale.</p>
+</section>
+
+<section>
+  <h2>Le résultat qui n'était pas attendu</h2>
+  <p>Confronté à la source de référence de la plateforme sur plusieurs espaces, le dispositif s'est révélé exact à une ou deux unités près, l'écart correspondant exactement aux comptes d'exploitation écartés volontairement.</p>
+  <p>Ce faisant, il a établi que <strong>la mesure manuelle antérieure sous-estimait de près de moitié</strong>. L'instrument n'a donc pas seulement remplacé un travail fastidieux : il a montré que celui-ci voyait moins que la réalité.</p>
+</section>
+
+<section>
+  <h2>Sur téléphone</h2>
+  <figure>
+    <img src="images/vitalite_mobile.png" alt="La même restitution sur un écran de téléphone" style="max-width: 330px; margin: 0 auto;">
+    <figcaption>Vérifié par la mesure plutôt qu'à l'œil : aucun débordement horizontal, aucun nom tronqué.</figcaption>
+  </figure>
+  <p>Le téléphone est le premier écran de cette plateforme. Le responsive a été validé en mesurant la page rendue, et non en la regardant : largeur de débordement, nombre de colonnes, troncature des libellés.</p>
+</section>
+
+<section>
+  <h2>Ce que ce travail ne montre pas</h2>
+  <div class="avert">
+    <p><strong>Aucun relevé, aucun code source, aucun nom.</strong> Les captures proviennent d'un banc de démonstration alimenté par des données fictives. Aucun chiffre issu d'un relevé de la plateforme n'est publié ici : ni effectif, ni taux de remplissage, ni classement d'établissement. Ces chiffres appartiennent à l'institution qui exploite la plateforme, et leur publication est une décision qui lui revient. Le code porte la structure d'un système d'information public et n'a pas vocation à circuler.</p>
+    <p>Les seuls éléments de contexte conservés sont des ordres de grandeur de structure, sans lesquels le problème posé serait incompréhensible : une plateforme de plusieurs milliers d'espaces, dont beaucoup ne comptent qu'une personne. Ils décrivent la difficulté à résoudre, non les résultats obtenus.</p>
+    <p>Ce qui est présenté ici est la <strong>méthode</strong> : elle ne doit rien à la plateforme concernée et vaut pour tout dispositif de mesure portant sur de petits effectifs.</p>
+  </div>
+</section>
+
+<div class="pied">
+  <p>Dispositif conçu au sein de la Direction des Curricula et de l'Innovation Pédagogique, ministère de la Formation professionnelle et technique du Sénégal. Mise en service en août 2026.</p>
+  <p><strong>Oumar SALL</strong> — technopédagogue et ingénieur pédagogique. <a href="https://oumarsall3.github.io/" style="color: var(--bleu);">Retour aux réalisations</a> · <a href="https://github.com/oumarsall3/vitalite-ejang" style="color: var(--bleu);">Dépôt de présentation</a></p>
+</div>
+
+</main>
+</body>
+</html>
