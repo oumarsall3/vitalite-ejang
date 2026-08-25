@@ -33,7 +33,7 @@ Quatre indicateurs, deux palmarès d'établissements, une note de méthode. Aucu
 
 ## Deux publics, deux documents, une seule source de chiffres
 
-**Ce qui mobilise va sur la place publique ; ce qui alerte reste dans le rapport interne.** Non pour farder les résultats, mais parce qu'un tableau de bord de communication et un instrument de pilotage ne se lisent pas de la même façon.
+**Ce qui mobilise va sur la place publique ; ce qui alerte reste dans le rapport interne.** Il ne s'agit pas de farder les résultats : un tableau de bord de communication et un instrument de pilotage ne se lisent pas de la même façon.
 
 Le rapport interne comporte une première colonne qui indique le geste à poser : inscrire une classe, déposer du contenu, relancer les inscrits, vérifier dans le cours. Un tableau de chiffres sans verbe d'action finit dans un dossier.
 
